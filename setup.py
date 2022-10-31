@@ -11,6 +11,8 @@ setuptools.setup(
     description='To generate random and strong passwords.',
     author='srg',
     author_email='srg.code@pm.me',
+    url='https://github.com/codesrg/zenpass',
+    download_url='https://github.com/codesrg/zenpass/releases',
     include_package_data=True,
     long_description=long_description,
     long_description_content_type="text/markdown",
