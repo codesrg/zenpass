@@ -1,4 +1,5 @@
 import random
+import pyperclip
 
 from . import constant as pc
 from .exception import ZenpassException
@@ -35,7 +36,7 @@ class PasswordGenerator:
                 self.length = random.randint(pc.DEFAULT_MIN_PASS_LEN,
                                              pc.DEFAULT_MAX_PASS_LEN)
             else:
-                raise ZenpassException('[-] Password length must be given.')
+                raise ZenpassException('Password length should be given.')
 
     def __add_only_wanted(self) -> None:
         possibility = pc.EMPTY_STRING
@@ -91,7 +92,7 @@ class PasswordGenerator:
     def __check(self) -> None:
         if self.length and ((self.length > len(
                 self.__possibility)) or self.length > pc.PASSWORD_LENGTH_LIMIT):
-            raise ZenpassException('[-] Password length must be less.')
+            raise ZenpassException('Password length must be less.')
 
     def __separated_pass(self) -> str:
         if type(self.separator) is bool:
@@ -115,10 +116,23 @@ class PasswordGenerator:
             self.__remove_unwanted()
         self.__repeat_char()
 
-    def generate(self) -> str:
+    def __copy_to_clipboard(self):
+        pyperclip.copy(self.__password)
+        print("Password copied to clipboard.")
+
+    def generate(self, display=False):
         self.__all_possible_chars()
         self.__set_length()
         self.__filter()
         self.__check()
         self.__password = pc.EMPTY_STRING.join(random.sample(self.__possibility, self.length))
-        return self.__separated_pass() if self.separator or self.separator_length else self.__password
+        self.__password = self.__separated_pass() if self.separator or self.separator_length else self.__password
+        if display is True:
+            self.show()
+        self.__copy_to_clipboard()
+        return self
+
+    def show(self):
+        if not self.__password:
+            raise ZenpassException("Password is not generated.")
+        print("Password: {}".format(self.__password))

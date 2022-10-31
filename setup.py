@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name='zenpass',
     packages=setuptools.find_packages(),
-    version='1.0.1',
+    version='1.0.2',
     license='Apache License, Version 2.0',
     description='To generate random and strong passwords.',
     author='srg',
@@ -25,6 +25,7 @@ setuptools.setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
+    requires=["pyperclip"],
     entry_points={'console_scripts': ['zenpass=zenpass.__main__:main']
                   },
     python_requires='>=3.6',
