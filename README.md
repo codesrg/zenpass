@@ -1,7 +1,7 @@
 # Zenpass
 
 [![PyPI](https://img.shields.io/pypi/v/zenpass)](https://pypi.python.org/pypi/zenpass)
-[![PyPI - License](https://img.shields.io/pypi/l/zenpass)](https://github.com/codesrg/zenpass/blob/main/LICENSE)
+[![Pypi - License](https://img.shields.io/github/license/codesrg/zenpass)](https://github.com/codesrg/zenpass/blob/main/LICENSE)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/zenpass?color=red)](https://pypi.python.org/pypi/zenpass)
 
 To generate random and strong passwords.
