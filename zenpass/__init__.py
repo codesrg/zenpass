@@ -1,6 +1,6 @@
 """Generate a strong password which includes alphabets, numbers, special characters"""
 
 __author__ = 'srg'
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 from .password import PasswordGenerator

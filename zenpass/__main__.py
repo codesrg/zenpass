@@ -1,11 +1,10 @@
 import argparse
 
-from .password import PasswordGenerator as Pg
-from .exception import ZenpassException
-
+from zenpass.password import PasswordGenerator as Pg
+from zenpass.exception import ZenpassException
 
 __prog__ = 'zenpass'
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 
 def get_argument():
@@ -24,25 +23,24 @@ def get_argument():
                        help="to repeat the characters in the password (default : %(default)s)")
     group.add_argument("--separation", dest="separation", default=False, action="store_true",
                        help="to separate password characters using separator (default : %(default)s)")
+    group.add_argument("--show", dest="show", default=False, action="store_true",
+                       help="to show password (default : %(default)s)")
     parser.add_argument_group(group)
     options = parser.parse_args()
     return options
 
 
 def generate_password(rep: bool, separation: bool, pass_len=None, wanted=None, ign=None, inc=None, sep=None,
-                      sep_len=None):
-    arg = Pg(length=pass_len, only=wanted, ignore=ign, include=inc, repeat=rep, separator=sep,
-             separator_length=sep_len, separation=separation)
-    password = arg.generate()
-    return password
+                      sep_len=None, show: bool = False):
+    Pg(length=pass_len, only=wanted, ignore=ign, include=inc, repeat=rep, separator=sep,
+       separator_length=sep_len, separation=separation).generate(show)
 
 
 def main():
     try:
         options = get_argument()
-        password = generate_password(options.repeat, options.separation, options.length, options.only, options.ignore,
-                                     options.include, options.separator, options.separatorlength)
-        print("\n{}".format(password))
+        generate_password(options.repeat, options.separation, options.length, options.only, options.ignore,
+                          options.include, options.separator, options.separatorlength, options.show)
     except ZenpassException as e:
         print(e.__str__())
 

@@ -28,20 +28,21 @@ to customize Password:
   -c , --seplen      the length of characters between separator
   --repeat           to repeat the characters in the password (default : False)
   --separation       to separate password characters using separator (default : False)
+  --show             to show password (default : False)
 ```
 
 ###
-To generate a random password and print it on the screen.
+To generate a random password.
 ```
-> zenpass
-kj(ot--4mJ1aeJ
+$ zenpass
+Password copied to clipboard.
 ```
 ###
 
 To set the password length, Default password length is `8-16`.
 
 ```
-> zenpass -l 10
+$ zenpass -l 10 --show
 Q3m/vro|uR
 ```
 ###
@@ -49,8 +50,8 @@ Q3m/vro|uR
 Whether the characters in passwords repeat or not,
 Default value of `repeat` is `False`.
 ```
-> zenpass -r
-96Ndl;1D>jQu4Z2
+$ zenpass -r --show
+96Ndl;1D$jQu4Z2
 ```
 ###
 
@@ -60,38 +61,38 @@ To include, ignore or use only `'alphabets'`, `'numbers'`, `'uppercase'`, `'lowe
 To ignore `numbers` in passwords. 
 
 ```
-> zenpass -n numbers
+$ zenpass -n numbers --show
 uyMXP‘$!ZSCYqzj
 ```
 ###
 To ignore characters `a,b,c,d,e`
 ```
-> zenpass -n abcde
+$ zenpass -n abcde --show
 ~}t"R‘jF'ksG8~E
 ```
 ###
 To create a password only using `special characters`.
 
 ```
-> zenpass -o symbols -l 15
+$ zenpass -o symbols -l 15 --show
 ?)".=-_^[_‘~{.)
 ```
 ###
 To include `a,b,c,d,e` characters in a password.
 ```
-> zenpass -o numbers -i abcde -l 15
+$ zenpass -o numbers -i abcde -l 15 --show
 78713d1e3d926a3
 ```
 ###
 To separate characters in a password using separator.
 ```
-> zenpass -o uppercase --separation -l 16
+$ zenpass -o uppercase --separation -l 16 --show
 YNQC-RKBF-DMAT-UVIP
 ```
 ###
 To separate characters in a password using separator `_` with `5` characters between each separator.
 ```
-> zenpass -o uppercase --separation -l 15 -s _ -c 5 
+$ zenpass -o uppercase --separation -l 15 -s _ -c 5 --show
 YNQCR_KBFDM_ATUVI
 ```
 
