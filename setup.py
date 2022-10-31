@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name='zenpass',
     packages=setuptools.find_packages(),
-    version='1.0.0',
+    version='1.0.1',
     license='Apache License, Version 2.0',
     description='To generate random and strong passwords.',
     author='srg',
