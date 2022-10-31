@@ -54,7 +54,7 @@ Default value of `repeat` is `False`.
 ```
 ###
 
-To include, ignore or use only `'alphabets'`, `'numbers'`, `'uppercase'`, `'lowercase'`, `'symbols'` and some `random characters` in generating password.
+To include, ignore or use only `'alphabets'`, `'numbers'`, `'uppercase'`, `'lowercase'`, `'symbols'` and `random characters` in generating password.
 ###
 
 To ignore `numbers` in passwords. 
@@ -91,7 +91,7 @@ YNQC-RKBF-DMAT-UVIP
 ###
 To separate characters in a password using separator `_` with `5` characters between each separator.
 ```
-> zenpass -o uppercase --separation -l 16 -s _ -c 5 
+> zenpass -o uppercase --separation -l 15 -s _ -c 5 
 YNQCR_KBFDM_ATUVI
 ```
 
