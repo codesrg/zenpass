@@ -1,7 +1,7 @@
 import argparse
 
-from zenpass.password import PasswordGenerator as Pg
-from zenpass.exception import ZenpassException
+from .password import PasswordGenerator as Pg
+from .exception import ZenpassException
 
 __prog__ = 'zenpass'
 __version__ = '1.0.2'

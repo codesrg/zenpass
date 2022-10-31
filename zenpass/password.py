@@ -1,8 +1,8 @@
 import random
 import pyperclip
 
-from zenpass import constant as pc
-from zenpass.exception import ZenpassException
+from . import constant as pc
+from .exception import ZenpassException
 
 
 class PasswordGenerator:
