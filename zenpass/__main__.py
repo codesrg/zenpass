@@ -4,9 +4,13 @@ from .password import PasswordGenerator as Pg
 from .exception import ZenpassException
 
 
+__prog__ = 'zenpass'
+__version__ = '1.0.1'
+
+
 def get_argument():
-    parser = argparse.ArgumentParser(prog="zenpass", usage="zenpass [options]")
-    parser.add_argument('-v', '--version', action='version', help='show version number and exit.', version="1.0.0")
+    parser = argparse.ArgumentParser(prog=__prog__, usage="zenpass [options]")
+    parser.add_argument('-v', '--version', action='version', help='show version number and exit.', version=__version__)
     group = parser.add_argument_group("to customize Password")
     group.add_argument("-l", "--length", dest="length", type=int, metavar='', help="to set length to the password")
     group.add_argument("-n", "--ignore", dest="ignore", metavar='',
