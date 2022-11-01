@@ -4,7 +4,7 @@ from .password import PasswordGenerator as Pg
 from .exception import ZenpassException
 
 __prog__ = 'zenpass'
-__version__ = '1.0.3'
+__version__ = '1.0.4'
 
 
 def get_argument():
