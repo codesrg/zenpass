@@ -1,15 +1,23 @@
 import argparse
+from srutil import util
 
-from .password import PasswordGenerator as Pg
+from . import __version__, __package__
 from .exception import ZenpassException
+from .password import PasswordGenerator as Pg
 
-__prog__ = 'zenpass'
-__version__ = '1.0.4'
+
+def _epilog() -> str:
+    el = '''
+    keywords: [alphabets, uppercase, lowercase, numbers, symbols] 
+    can be given as input for following params: ignore, only, include
+    '''
+    return el
 
 
 def get_argument():
-    parser = argparse.ArgumentParser(prog=__prog__, usage="zenpass [options]")
-    parser.add_argument('-v', '--version', action='version', help='show version number and exit.', version=__version__)
+    parser = argparse.ArgumentParser(prog=__package__, usage=util.stringbuilder(__package__, " [options]"),
+                                     epilog=_epilog())
+    parser.add_argument('-v', '--version', action='version', help='show version number and exit', version=__version__)
     group = parser.add_argument_group("to customize Password")
     group.add_argument("-l", "--length", dest="length", type=int, metavar='', help="to set length to the password")
     group.add_argument("-n", "--ignore", dest="ignore", metavar='',
