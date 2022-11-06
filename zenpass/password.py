@@ -6,6 +6,13 @@ from .exception import ZenpassException
 
 
 class PasswordGenerator:
+    """
+    keywords: [alphabets, uppercase, lowercase, numbers, symbols]
+    
+    above keywords can be given as input for following params:
+    ignore, include, only
+    """
+
     def __init__(self, length: int = None, ignore: str = None, only: str = None, include: str = None,
                  repeat: bool = False, separator: str = None, separator_length: int = None, separation: bool = False):
         self.__password = None
@@ -120,7 +127,7 @@ class PasswordGenerator:
         pyperclip.copy(self.__password)
         print("Password copied to clipboard.")
 
-    def generate(self, display=False):
+    def generate(self, display=False) -> "PasswordGenerator":
         self.__all_possible_chars()
         self.__set_length()
         self.__filter()
@@ -136,3 +143,12 @@ class PasswordGenerator:
         if not self.__password:
             raise ZenpassException("Password is not generated.")
         print("Password: {}".format(self.__password))
+
+
+class ZenPass:
+    @staticmethod
+    def generate():
+        """
+        will return random password.
+        """
+        PasswordGenerator().generate().show()

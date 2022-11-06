@@ -29,18 +29,29 @@ to customize Password:
   --repeat           to repeat the characters in the password (default : False)
   --separation       to separate password characters using separator (default : False)
   --show             to show password (default : False)
+  
+keywords: [alphabets, uppercase, lowercase, numbers, symbols] 
+can be given as input for following params: ignore, include, only
 ```
 
-###
+### Python Script
+To generate a random password.
+```
+from zenpass import PasswordGenerator
+
+pg = PasswordGenerator()
+pg.generate()
+```
+
+### Command Line
 To generate a random password.
 ```
 $ zenpass
 Password copied to clipboard.
 ```
+
 ###
-
 To set the password length, Default password length is `8-16`.
-
 ```
 $ zenpass -l 10 --show
 Password: Q3m/vro|uR
