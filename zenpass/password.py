@@ -1,5 +1,5 @@
 import random
-import pyperclip
+from srutil import util
 
 from . import constant as pc
 from .exception import ZenpassException
@@ -124,7 +124,7 @@ class PasswordGenerator:
         self.__repeat_char()
 
     def __copy_to_clipboard(self):
-        pyperclip.copy(self.__password)
+        util.to_clipboard(self.__password)
         print("Password copied to clipboard.")
 
     def generate(self, display=False) -> "PasswordGenerator":
