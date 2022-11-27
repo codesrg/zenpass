@@ -13,8 +13,7 @@ authors = [
     { name = "srg", email = "srg.code@pm.me" },
 ]
 dependencies = [
-    "srutil",
-    "pyperclip"
+    "srutil"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
