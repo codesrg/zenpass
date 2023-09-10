@@ -146,6 +146,9 @@ class PasswordGenerator:
 
 
 class ZenPass:
+    def __init__(self):
+        pass
+
     @staticmethod
     def generate():
         """
